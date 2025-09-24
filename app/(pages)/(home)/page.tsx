@@ -6,8 +6,8 @@ export default async function Home() {
   const news = await getNews()
 
   return (
-    <main>
+    <div>
       <NewsList newsData={news} />
-    </main>
+    </div>
   );
 }

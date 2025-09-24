@@ -3,33 +3,77 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
-
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent-orange: #FF9D00;
+  --color-gradient-start: #510049;
+  --color-gradient-end: rgba(81, 0, 73, 0.05);
 
+  /* Spacing system */
   --spacing-desktop-x: 60px;
   --spacing-desktop-y: 44px;
   --spacing-mobile-x: 20px;
   --spacing-mobile-y: 44px;
+  
+  /* Component-specific spacing */
+  --spacing-30: 30px;      /* ReadMoreButton height */
+  --spacing-75: 75px;      /* NewsList gap */
+  --spacing-199: 199px;    /* NewsItemCard image height */
+  --spacing-402: 402px;    /* Featured card mobile height */
+  --spacing-539: 539px;    /* Featured card desktop height */
 
+  /* Typography */
   --font-albra: var(--font-albra);
   --font-helvetica: var(--font-helvetica-now);
+  --font-roboto: var(--font-roboto);
+  
+  /* Font sizes with line heights */
+  --font-size-80: 80px;
+  --line-height-80: 80px;
+  --font-size-40: 40px;
+  --line-height-40: 40px;
+
+  /* Grid systems */
+  --grid-cols-news-desktop: repeat(4, 1fr);
+  --grid-cols-news-mobile: 1fr;
+
+  /* Backdrop blur */
+  --backdrop-blur-custom: 10px;
 }
 
-.section-padding{
+/* Utility classes */
+.section-padding {
   @apply lg:px-desktop-x px-mobile-x;
 }
 
-/* .bg-gradient {
-  @apply bg-gradient-to-br from-purple-900 via-purple-800 to-purple-950/10 backdrop-blur-[10px];
-  background: ;
-} */
-
 .bg-gradient {
-  background: linear-gradient(135deg, #510049 0%, rgba(81, 0, 73, 0.05) 100%);
+  background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+}
+
+.text-display-large {
+  font-size: var(--font-size-80);
+  line-height: var(--line-height-80);
+  font-family: var(--font-helvetica);
+}
+
+.text-display-large-mobile {
+  font-size: var(--font-size-40);
+  line-height: var(--line-height-40);
+  font-family: var(--font-helvetica);
+}
+
+.grid-news {
+  @apply lg:grid-cols-4 grid-cols-1;
+}
+
+/* Orange gradient line */
+.gradient-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent-orange) 0%, transparent 100%);
 }
 
 @media (prefers-color-scheme: dark) {

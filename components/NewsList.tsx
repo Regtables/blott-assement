@@ -9,7 +9,7 @@ type NewsListProps = {
 
 const NewsList = ({ newsData }: NewsListProps) => {
   return (
-    <section className="section-padding flex flex-col lg:gap-[75px] gap-14">
+    <section className="section-padding flex flex-col lg:gap-75 gap-14">
      <NewsHeading />
 
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-4 gap-y-14">

@@ -8,7 +8,7 @@ const NewsHeading = (props: Props) => {
     <div className="lg:text-[80px] text-[40px] leading-[40px] font-helvetica uppercase lg:leading-[80px]">
       <h1>Latest News</h1>
       <div className="flex items-center lg:gap-6">
-        <h1 className="font-albra leading-0">From</h1>
+        <h1 className="font-albra leading-[80px]">From</h1>
 
         <div className="lg:block hidden h-[1px] lg:w-[200px] bg-white" />
 
