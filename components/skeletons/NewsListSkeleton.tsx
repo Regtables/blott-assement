@@ -11,7 +11,7 @@ const NewsCardSkeleton = ({ isFeatured = false }: { isFeatured?: boolean }) => (
 )
 
 const NewsListSkeleton = () => (
-  <section className="px-mobile-x lg:px-desktop-x flex flex-col lg:gap-75 gap-14">
+  <section className="w-full px-mobile-x lg:px-desktop-x flex flex-col lg:gap-75 gap-14">
     <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-4 gap-y-14">
       {Array.from({ length: 8 }).map((_, i) => (
         <NewsCardSkeleton key={i} isFeatured={i === 0} />

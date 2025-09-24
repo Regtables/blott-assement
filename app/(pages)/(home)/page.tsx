@@ -6,15 +6,18 @@ import NewsList from "@/components/NewsList";
 import NewsHeading from "@/components/NewsHeading";
 import NewsListSkeleton from "@/components/skeletons/NewsListSkeleton";
 
-export default async function Home() {
+async function NewsContent() {
   const news = await getNews()
+  return <NewsList newsData={news} />
+}
 
+export default async function Home() {
   return (
     <div className="px-desktop-x flex flex-col lg:gap-24 gap-14">
       <NewsHeading />
 
       <Suspense fallback = {<NewsListSkeleton />}>
-        <NewsList newsData={news} />
+        <NewsContent />
       </Suspense>
     </div>
   );
