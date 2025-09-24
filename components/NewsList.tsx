@@ -12,7 +12,7 @@ const NewsList = ({ newsData }: NewsListProps) => {
     <section className="section-padding flex flex-col lg:gap-75 gap-14">
      <NewsHeading />
 
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-4 gap-y-14">
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-4 lg:gap-y-14 gap-y-4">
         {newsData.map((newsItem, i) => (
           <NewsItemCard
             key={newsItem.id}
