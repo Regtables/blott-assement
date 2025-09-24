@@ -1,9 +1,8 @@
+'use client'
+
 import Image from "next/image";
-import React from "react";
 
-type Props = {};
-
-const NewsHeading = (props: Props) => {
+const NewsHeading = () => {
   return (
     <div className="lg:text-[80px] text-[40px] leading-[40px] font-helvetica uppercase lg:leading-[80px]">
       <h1>Latest News</h1>
