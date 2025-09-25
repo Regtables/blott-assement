@@ -1,23 +1,56 @@
-import { CircleArrowUp } from 'lucide-react'
-import Link from 'next/link'
-import React from 'react'
+import { CircleArrowUp } from "lucide-react";
+import React, { useState } from "react";
 
 type ReadMoreButtonProps = {
-  url: string
-}
+  url: string;
+  headline: string;
+};
 
-const ReadMoreButton = ({ url }: ReadMoreButtonProps) => {
+const ReadMoreButton = ({ url, headline }: ReadMoreButtonProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
-    <Link href={url} target='_blank' className='group'>
-      <button className='flex h-[30px] gap-1 cursor-pointer'>
-        <div className='border-b border-white pb-[7px]'>
-          Read Article
-        </div>
+    <button
+      className="flex h-30 gap-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded-sm"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      aria-label={`Read full article: ${headline}`}
+      type="button"
+    >
+      <div className="relative pb-[7px] overflow-hidden">
+        <span className="relative z-10">Read Article</span>
+        
+        <div className={`absolute bottom-0 left-0 h-px w-full bg-white origin-right transition-transform duration-300 ease-in-out ${
+          isHovered ? 'scale-x-0' : 'scale-x-100'
+        }`} />
+        
+        <div className={`absolute bottom-0 left-0 h-px w-full bg-white origin-left transition-transform duration-300 ease-in-out ${
+          isHovered ? 'scale-x-100 delay-150' : 'scale-x-0'
+        }`} />
+      </div>
 
-        <CircleArrowUp className='rotate-45 gap-1.5 group-hover:mt-2 transition-all duration-500' />
-      </button>
-    </Link>
-  )
-}
+      <CircleArrowUp 
+        className={`rotate-45 transition-all duration-300 ${isHovered ? 'translate-x-1' : ''}`}
+        aria-hidden="true"
+      />
+    </button>
+  );
+};
 
-export default ReadMoreButton
+export default ReadMoreButton;

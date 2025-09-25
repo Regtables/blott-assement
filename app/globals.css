@@ -16,6 +16,7 @@
   /* Spacing system */
   --spacing-desktop-x: 60px;
   --spacing-desktop-y: 44px;
+  --spacing-tablet-x: 32px;
   --spacing-mobile-x: 20px;
   --spacing-mobile-y: 44px;
   
@@ -47,7 +48,7 @@
 
 /* Utility classes */
 .section-padding {
-  @apply lg:px-desktop-x px-mobile-x;
+  @apply lg:px-desktop-x md:px-tablet-x px-mobile-x;
 }
 
 .bg-gradient {
@@ -70,7 +71,6 @@
   @apply lg:grid-cols-4 grid-cols-1;
 }
 
-/* Orange gradient line */
 .gradient-line {
   height: 1px;
   background: linear-gradient(90deg, var(--color-accent-orange) 0%, transparent 100%);

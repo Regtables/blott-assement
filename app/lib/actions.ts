@@ -14,6 +14,7 @@ export async function getNews(): Promise<NewsItem[]> {
           "X-Finnhub-Token": `${token}`,
         },
       }
+      
     );
 
     if (!response.ok) {

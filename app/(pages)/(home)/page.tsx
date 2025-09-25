@@ -13,7 +13,7 @@ async function NewsContent() {
 
 export default async function Home() {
   return (
-    <div className="px-desktop-x flex flex-col lg:gap-24 gap-14">
+    <div className="home-page section-padding flex flex-col lg:gap-24 gap-14">
       <NewsHeading />
 
       <Suspense fallback = {<NewsListSkeleton />}>

@@ -52,20 +52,20 @@ const NewsHeading = () => {
   });
 
   return (
-    <div className="news-heading lg:text-[80px] text-[40px] leading-[40px] font-helvetica uppercase lg:leading-[80px]">
+    <div className="news-heading lg:text-[80px] text-[36px] leading-[40px] font-helvetica uppercase lg:leading-[80px]">
       <div className="overflow-hidden">
         <h1 className="heading-latest opacity-0">Latest News</h1>
       </div>
-      <div className="flex items-center lg:gap-6">
+      <div className="flex items-center md:gap-6 gap-1  ">
         <div className="overflow-hidden">
-          <h1 className="heading-from font-albra leading-[80px] opacity-0">From</h1>
+          <h1 className="heading-from font-albra opacity-0 mt-2">From</h1>
         </div>
 
-        <div className="news-heading-line lg:block hidden h-[1px] lg:w-[200px] bg-white origin-left opacity-0" />
+        <div className="news-heading-line md:block hidden h-[1px] xl:w-[200px] md:w-[150px] bg-white origin-left opacity-0" />
 
         <div className="flex items-start gap-2">
           <div className="overflow-hidden">
-            <h1 className="heading-world opacity-0">The World</h1>
+            <h1 className="heading-world opacity-0 text-wrap">The World</h1>
           </div>
 
           <Image
@@ -73,7 +73,7 @@ const NewsHeading = () => {
             height={24}
             width={24}
             alt="Bitcoin logo"
-            className="bitcoin-logo mt-3 lg:block hidden opacity-0"
+            className="bitcoin-logo mt-3 md:block hidden opacity-0"
           />
         </div>
       </div>
