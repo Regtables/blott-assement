@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 import { NewsItem } from "@/types";
 import NewsItemCard from "./NewsItemCard";
@@ -15,34 +15,32 @@ type NewsListProps = {
 };
 
 const NewsList = ({ newsData }: NewsListProps) => {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    if (!containerRef.current) return
+    if (!containerRef.current) return;
 
-    const newsItems = gsap.utils.toArray('.news-item')
+    const newsItems = gsap.utils.toArray(".news-item");
 
-    // Set initial state
-    gsap.set(newsItems, { autoAlpha: 0, y: 30 })
+    gsap.set(newsItems, { autoAlpha: 0, y: 30 });
 
-    // Small delay to allow layout to settle after skeleton unmount
-    // gsap.delayedCall(0.1, () => {
-      gsap.fromTo(newsItems, 
-        { autoAlpha: 0, y: 30 }, 
-        { 
-          autoAlpha: 1, 
-          y: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.home-page',
-            start: 'top 80%'
-          }
-        }
-      )
+    gsap.fromTo(
+      newsItems,
+      { autoAlpha: 0, y: 30 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".home-page",
+          start: "top 80%",
+        },
+      }
+    );
     // })
-  }, [])
+  }, []);
 
   return (
     <section ref={containerRef} className="flex flex-col lg:gap-75 gap-14">

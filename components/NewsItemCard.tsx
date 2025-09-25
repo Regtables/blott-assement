@@ -3,66 +3,54 @@ import { NewsItem, PropsWithClassName } from "@/types";
 import Image from "next/image";
 import React from "react";
 import ReadMoreButton from "./ReadMoreButton";
+import Link from "next/link";
 
 type NewsItemCardProps = PropsWithClassName<{
   newsItem: NewsItem;
   isFeatured?: boolean;
 }>;
 
-const NewsItemCard = ({
-  newsItem,
-  isFeatured,
-  className,
-}: NewsItemCardProps) => {
+const NewsItemCard = ({ newsItem, isFeatured, className }: NewsItemCardProps) => {
   return (
-    <div
+    <article
       className={cn(
-        "relative col-span-1 flex flex-col gap-4 h-full border-white/0 group hover:border-white/40 border-2 rounded-md transition-all duration-500 cursor-pointer",
+        "relative col-span-1 flex flex-col gap-4 focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-black rounded-md group",
         isFeatured && "lg:col-span-2",
         className
       )}
     >
-      <article
-        className={cn(
-          "relative col-span-1 flex flex-col gap-4 group-hover:!scale-[0.95] transition-all duration-500",
-          isFeatured && "lg:col-span-2",
-          className
-        )}
+      <Link 
+        href={newsItem.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded-md"
+        aria-label={`Read article: ${newsItem.headline} from ${newsItem.source}`}
       >
-        <div
-          className={cn("w-full h-199", isFeatured && "lg:h-[539px] h-[402px]")}
-        >
+        <div className={cn("w-full h-199", isFeatured && 'lg:h-539 h-402')}>
           <figure className="relative h-full w-full">
             <Image
               src={newsItem.image}
               fill
-              alt={`${newsItem.headline} featured image`}
-              objectFit="cover"
-              className="rounded-md"
+              alt=""
+              className="rounded-md object-cover"
             />
           </figure>
         </div>
 
-        <div
-          className={cn(
-            "flex flex-col gap-4 relative",
-            isFeatured &&
-              "absolute bottom-0 lg:px-7 lg:pt-9 lg:pb-7 px-[20px] py-[20px] bg-gradient backdrop-blur-custom rounded-b-md"
-          )}
-        >
-          <div
-            className={cn(
-              "h-[1px] w-full bg-gradient-to-r from-[#FF9D00] to-transparent absolute start-0 top-0 hidden",
-              isFeatured && "block"
-            )}
-          />
-          <h3 className="lg:text-2xl leading-[130%]">{newsItem.headline}</h3>
+        <div className={cn('flex flex-col gap-4 relative', isFeatured && 'absolute bottom-0 lg:px-7 lg:pt-9 lg:pb-7 px-5 py-5 bg-gradient backdrop-blur-[10px] rounded-b-md')}>
+          <div className={cn("h-px w-full bg-gradient-to-r from-accent-orange to-transparent absolute start-0 top-0 hidden", isFeatured && 'block')}/>
+          
+          <h2 className="lg:text-2xl leading-[130%] text-white">
+            {newsItem.headline}
+          </h2>
 
-          <ReadMoreButton url={newsItem.url} />
+          <ReadMoreButton 
+            url={newsItem.url} 
+            headline={newsItem.headline}
+          />
         </div>
-      </article>
-    </div>
+      </Link>
+    </article>
   );
 };
-
 export default NewsItemCard;

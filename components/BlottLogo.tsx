@@ -36,7 +36,7 @@ const BlottLogo = () => {
       logo.addEventListener("mouseenter", () => {
         if (isAnimating) return;
         isAnimating = true;
-        
+
         gsap.to(logo, {
           rotationX: 360,
           duration: 0.8,
@@ -45,7 +45,7 @@ const BlottLogo = () => {
           transformPerspective: 1200,
           onComplete: () => {
             isAnimating = false;
-          }
+          },
         });
       });
 
@@ -69,7 +69,15 @@ const BlottLogo = () => {
   return (
     <div
       ref={logoRef}
-      className="inline-block cursor-pointer opacity-0"
+      className="inline-block cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded-sm opacity-0"
+      role="button"
+      tabIndex={0}
+      aria-label="Blott logo - click to return to homepage"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          window.location.href = "/";
+        }
+      }}
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
@@ -79,7 +87,7 @@ const BlottLogo = () => {
         src="/blott-logo.svg"
         height={48}
         width={200}
-        alt="Blott Logo"
+        alt="Blott"
         className="block"
       />
     </div>
