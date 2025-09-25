@@ -15,32 +15,53 @@ const NewsItemCard = ({
   className,
 }: NewsItemCardProps) => {
   return (
-    <article
+    <div
       className={cn(
-        "relative col-span-1 flex flex-col gap-4",
+        "relative col-span-1 flex flex-col gap-4 h-full border-white/0 group hover:border-white/40 border-2 rounded-md transition-all duration-500 cursor-pointer",
         isFeatured && "lg:col-span-2",
         className
       )}
     >
-      <div className={cn("w-full h-199", isFeatured && 'lg:h-[539px] h-[402px]')}>
-        <figure className="relative h-full w-full">
-          <Image
-            src={newsItem.image}
-            fill
-            alt={`${newsItem.headline} featured image`}
-            objectFit="cover"
-            className="rounded-md"
+      <article
+        className={cn(
+          "relative col-span-1 flex flex-col gap-4 group-hover:!scale-[0.95] transition-all duration-500",
+          isFeatured && "lg:col-span-2",
+          className
+        )}
+      >
+        <div
+          className={cn("w-full h-199", isFeatured && "lg:h-[539px] h-[402px]")}
+        >
+          <figure className="relative h-full w-full">
+            <Image
+              src={newsItem.image}
+              fill
+              alt={`${newsItem.headline} featured image`}
+              objectFit="cover"
+              className="rounded-md"
+            />
+          </figure>
+        </div>
+
+        <div
+          className={cn(
+            "flex flex-col gap-4 relative",
+            isFeatured &&
+              "absolute bottom-0 lg:px-7 lg:pt-9 lg:pb-7 px-[20px] py-[20px] bg-gradient backdrop-blur-custom rounded-b-md"
+          )}
+        >
+          <div
+            className={cn(
+              "h-[1px] w-full bg-gradient-to-r from-[#FF9D00] to-transparent absolute start-0 top-0 hidden",
+              isFeatured && "block"
+            )}
           />
-        </figure>
-      </div>
+          <h3 className="lg:text-2xl leading-[130%]">{newsItem.headline}</h3>
 
-      <div className= {cn('flex flex-col gap-4 relative',isFeatured && 'absolute bottom-0 lg:px-7 lg:pt-9 lg:pb-7 px-[20px] py-[20px] bg-gradient backdrop-blur-custom rounded-b-md')}>
-        <div className={cn("h-[1px] w-full bg-gradient-to-r from-[#FF9D00] to-transparent absolute start-0 top-0 hidden", isFeatured && 'block')}/>
-        <h3 className="lg:text-2xl leading-[130%]">{newsItem.headline}</h3>
-
-        <ReadMoreButton />
-      </div>
-    </article>
+          <ReadMoreButton url={newsItem.url} />
+        </div>
+      </article>
+    </div>
   );
 };
 
