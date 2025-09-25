@@ -22,22 +22,26 @@ const NewsList = ({ newsData }: NewsListProps) => {
 
     const newsItems = gsap.utils.toArray('.news-item')
 
+    // Set initial state
     gsap.set(newsItems, { autoAlpha: 0, y: 30 })
 
-    gsap.fromTo(newsItems, 
-      { autoAlpha: 0, y: 30 }, 
-      { 
-        autoAlpha: 1, 
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%'
+    // Small delay to allow layout to settle after skeleton unmount
+    // gsap.delayedCall(0.1, () => {
+      gsap.fromTo(newsItems, 
+        { autoAlpha: 0, y: 30 }, 
+        { 
+          autoAlpha: 1, 
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.home-page',
+            start: 'top 80%'
+          }
         }
-      }
-    )
+      )
+    // })
   }, [])
 
   return (
@@ -48,7 +52,7 @@ const NewsList = ({ newsData }: NewsListProps) => {
             key={newsItem.id}
             newsItem={newsItem}
             isFeatured={i === 0}
-            className="news-item"
+            className="news-item opacity-0"
           />
         ))}
       </div>

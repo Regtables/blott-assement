@@ -69,7 +69,7 @@ const BlottLogo = () => {
   return (
     <div
       ref={logoRef}
-      className="inline-block cursor-pointer"
+      className="inline-block cursor-pointer opacity-0"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",

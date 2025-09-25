@@ -17,9 +17,15 @@ const NewsHeading = () => {
 
     gsap.set([".heading-latest", ".heading-from", ".heading-world"], {
       yPercent: 150,
+      opacity: 1, 
     });
-    gsap.set('.news-heading-line', { scaleX: 0 })
-    gsap.set(".bitcoin-logo", { opacity: 0 });
+    gsap.set('.news-heading-line', { 
+      scaleX: 0,
+      opacity: 1 
+    });
+    gsap.set(".bitcoin-logo", { 
+      opacity: 0
+    });
 
     headingTl
       .fromTo(
@@ -40,26 +46,26 @@ const NewsHeading = () => {
       )
       .fromTo(".bitcoin-logo", { opacity: 0 }, { opacity: 1 }, '-=0.2');
 
-
-      return () => {
-        headingTl.kill()
-      }
+    return () => {
+      headingTl.kill()
+    }
   });
+
   return (
     <div className="news-heading lg:text-[80px] text-[40px] leading-[40px] font-helvetica uppercase lg:leading-[80px]">
       <div className="overflow-hidden">
-        <h1 className="heading-latest">Latest News</h1>
+        <h1 className="heading-latest opacity-0">Latest News</h1>
       </div>
       <div className="flex items-center lg:gap-6">
         <div className="overflow-hidden">
-          <h1 className="heading-from font-albra leading-[80px]">From</h1>
+          <h1 className="heading-from font-albra leading-[80px] opacity-0">From</h1>
         </div>
 
-        <div className="news-heading-line lg:block hidden h-[1px] lg:w-[200px] bg-white origin-left" />
+        <div className="news-heading-line lg:block hidden h-[1px] lg:w-[200px] bg-white origin-left opacity-0" />
 
         <div className="flex items-start gap-2">
           <div className="overflow-hidden">
-            <h1 className="heading-world">The World</h1>
+            <h1 className="heading-world opacity-0">The World</h1>
           </div>
 
           <Image
@@ -67,7 +73,7 @@ const NewsHeading = () => {
             height={24}
             width={24}
             alt="Bitcoin logo"
-            className="bitcoin-logo mt-3 lg:block hidden"
+            className="bitcoin-logo mt-3 lg:block hidden opacity-0"
           />
         </div>
       </div>
