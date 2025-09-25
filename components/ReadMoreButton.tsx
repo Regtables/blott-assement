@@ -1,4 +1,5 @@
 import { CircleArrowUp } from "lucide-react";
+import Image from "next/image";
 import React, { useState } from "react";
 
 type ReadMoreButtonProps = {
@@ -45,9 +46,12 @@ const ReadMoreButton = ({ url, headline }: ReadMoreButtonProps) => {
         }`} />
       </div>
 
-      <CircleArrowUp 
-        className={`rotate-45 transition-all duration-300 ${isHovered ? 'translate-x-1' : ''}`}
-        aria-hidden="true"
+      <Image 
+        src={'/circle-arrow-right-up.svg'}
+        height={24}
+        width={24}
+        alt = 'Circle Arrow Right Up Icon'
+        className={`transition-all duration-300 ${isHovered ? 'translate-x-1' : ''}`}
       />
     </button>
   );
