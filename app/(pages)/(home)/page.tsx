@@ -33,7 +33,8 @@ import NewsList from '@/components/NewsList';
 import NewsListSkeleton from '@/components/skeletons/NewsListSkeleton';
 import NewsHeading from '@/components/NewsHeading';
 
-// Separate async component for data fetching
+export const dynamic = 'force-dynamic'
+
 async function NewsContent() {
   const news = await getNews();
   return <NewsList newsData={news} />;
