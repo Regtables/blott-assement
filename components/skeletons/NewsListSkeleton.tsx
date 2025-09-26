@@ -10,7 +10,7 @@ const NewsCardSkeleton = ({ isFeatured = false }: { isFeatured?: boolean }) => (
   >
     <div
       className={`bg-gray-600 rounded-md mb-4 animate-pulse ${
-        isFeatured ? "h-539 lg:h-539 h-402" : "h-199"
+        isFeatured ? "lg:h-539 h-402" : "h-199"
       }`}
     />
     <div className="space-y-3">

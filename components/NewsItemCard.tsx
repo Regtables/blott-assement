@@ -49,7 +49,7 @@ const NewsItemCard = ({
 
         <div
           className={cn(
-            "flex flex-col gap-4 relative",
+            "flex flex-col w-full gap-4 relative",
             isFeatured &&
               "absolute bottom-0 lg:px-7 lg:pt-9 lg:pb-7 px-[20px] py-[20px] bg-gradient backdrop-blur-custom rounded-b-md"
           )}
