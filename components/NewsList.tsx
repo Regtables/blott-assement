@@ -20,25 +20,26 @@ const NewsList = ({ newsData }: NewsListProps) => {
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    const newsItems = gsap.utils.toArray(".news-item");
+    const newsItems = gsap.utils.toArray<HTMLElement>(".news-item");
 
     gsap.set(newsItems, { autoAlpha: 0, y: 30 });
 
-    gsap.fromTo(
-      newsItems,
-      { autoAlpha: 0, y: 30 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".home-page",
-          start: "top 80%",
-        },
-      }
-    );
+    ScrollTrigger.batch(".news-item", {
+      onEnter: (elements) => {
+        gsap.to(
+          elements,
+          // { autoAlpha: 0, y: 30 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.1,
+          }
+        );
+      },
+      start: "top bottom",
+    });
   }, []);
 
   return (

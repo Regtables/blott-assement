@@ -41,7 +41,7 @@ const NewsHeading = () => {
       .fromTo(".news-heading-line", { scaleX: 0 }, { scaleX: 1, ease: 'power3' }, '-=0.2')
       .fromTo(
         ".heading-world",
-        { yPercent: 150, skewY: 15 },
+        { yPercent: 180, skewY: 15 },
         { yPercent: 0, skewY: 0, ease: 'power2.out', duration: 0.5  }, '-=0.3'
       )
       .fromTo(".bitcoin-logo", { opacity: 0 }, { opacity: 1 }, '-=0.2');

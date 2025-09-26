@@ -6,6 +6,8 @@ import NewsList from "@/components/NewsList";
 import NewsHeading from "@/components/NewsHeading";
 import NewsListSkeleton from "@/components/skeletons/NewsListSkeleton";
 
+export const dynamic = 'force-dynamic'
+
 async function NewsContent() {
   const news = await getNews()
   return <NewsList newsData={news} />
@@ -13,7 +15,7 @@ async function NewsContent() {
 
 export default async function Home() {
   return (
-    <div className="home-page section-padding flex flex-col lg:gap-24 gap-14">
+    <div className="home-page w-full section-padding flex flex-col lg:gap-24 gap-14">
       <NewsHeading />
 
       <Suspense fallback = {<NewsListSkeleton />}>

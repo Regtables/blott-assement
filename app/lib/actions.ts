@@ -13,6 +13,7 @@ export async function getNews(): Promise<NewsItem[]> {
         headers: {
           "X-Finnhub-Token": `${token}`,
         },
+        cache: 'no-store'
       }
       
     );
