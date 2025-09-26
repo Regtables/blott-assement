@@ -26,26 +26,11 @@ const SectionSkeletonTransitionWrapper = ({
     return Object.values(contentProps)[0].length > 0
   }, [contentProps])
 
-  // useEffect(() => {
-  //   if (Object.values(contentProps).length > 0) {
-  //     setTimeout(() => {
-  //       setShowContent(true);
-  //     }, 100);
-  //   }
-  // }, []);
-
-  // const handleSkeletonComplete = () => {
-  //   // setTimeout(() => {
-  //   setShowContent(true);
-  //   // }, 100);
-  // };
-
   return (
     <div ref={containerRef} className={className}>
       {!showContent ? (
         <SkeletonComponent
           {...skeletonProps}
-          // onComplete={handleSkeletonComplete}
         />
       ) : (
         <ContentComponent {...contentProps} />
