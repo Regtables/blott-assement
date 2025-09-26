@@ -44,7 +44,6 @@ const NewsListSkeleton = ({ onComplete }: NewsListSkeletonProps) => {
         stagger: 0.08,
         ease: "power2.out",
       })
-
         .to(skeletonCards, {
           autoAlpha: 0,
           y: -10,
@@ -55,7 +54,7 @@ const NewsListSkeleton = ({ onComplete }: NewsListSkeletonProps) => {
         })
         .call(() => {
           onComplete?.();
-        });
+        }, [0.5]);
 
       return () => {
         tl.kill();
