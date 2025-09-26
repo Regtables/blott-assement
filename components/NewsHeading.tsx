@@ -31,7 +31,7 @@ const NewsHeading = () => {
       .fromTo(
         ".heading-latest",
         { yPercent: 150, skewY: 10 },
-        { yPercent: 0, skewY: 0, ease: 'power2.out', duration: 0.5 }
+        { yPercent: 0, skewY: 0, ease: 'power2.out', duration: 0.5, delay: 0.5 }
       )
       .fromTo(
         ".heading-from",
