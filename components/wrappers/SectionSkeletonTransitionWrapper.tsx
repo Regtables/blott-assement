@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SimpleSectionWrapperProps = {
   ContentComponent: React.ComponentType<any>;
@@ -20,19 +20,31 @@ const SectionSkeletonTransitionWrapper = ({
   const [showContent, setShowContent] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  console.log(contentProps)
+
+  useEffect(() => {
+    if(Object.values(contentProps).length > 0){
+      setTimeout(() => {
+        setShowContent(true)
+      
+      }, 100);
+    }
+  }, [contentProps])
+
   const handleSkeletonComplete = () => {
-    setTimeout(() => {
+    // setTimeout(() => {
       setShowContent(true);
-    }, 100);
+    // }, 100);
   };
 
   return (
     <div ref={containerRef} className={className}>
       {!showContent ? (
-        <SkeletonComponent 
-          {...skeletonProps}
-          onComplete={handleSkeletonComplete}
-        />
+        <></>
+        // <SkeletonComponent 
+        //   {...skeletonProps}
+        //   onComplete={handleSkeletonComplete}
+        // />
       ) : (
         <ContentComponent {...contentProps} />
       )}
