@@ -28,7 +28,6 @@ const NewsList = ({ newsData }: NewsListProps) => {
       onEnter: (elements) => {
         gsap.to(
           elements,
-          // { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
             y: 0,
