@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blott News Application
 
-## Getting Started
+A modern financial news application built with Next.js, featuring smooth animations and responsive design. Displays the latest market news with a premium user experience.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Server-Side Rendering** - Fast initial page loads with Next.js 15
+- **Responsive Design** - Mobile-first approach with desktop enhancements  
+- **Smooth Animations** - GSAP-powered scroll effects and loading transitions
+- **Real-time News** - Latest financial news from Finnhub API
+- **TypeScript** - Full type safety throughout the application
+- **Modern Styling** - Custom design system built on Tailwind CSS v4
+
+## 🛠️ Tech Stack
+
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS v4** - Utility-first styling with custom design tokens
+- **GSAP** - Professional animations and scroll triggers
+- **Finnhub API** - Financial news data
+
+## 📁 Project Structure
+
+```
+├── app/
+│   ├── (pages)/
+│   │   └── (home)/page.tsx     # Home page with news list
+│   ├── lib/
+│   │   └── actions.ts          # Server actions for API calls
+│   └── globals.css             # Design system and global styles
+├── components/
+│   ├── NewsItemCard.tsx        # Individual news article component
+│   ├── NewsList.tsx            # News grid with animations
+│   ├── NewsHeading.tsx         # Animated page heading
+│   └── skeletons/              # Loading state components
+├── types.ts                    # TypeScript definitions
+└── public/                     # Static assets and fonts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚦 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone and install dependencies**
+   ```bash
+   git clone <repo-url>
+   cd blott-news-app
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Set up environment variables**
+   ```bash
+   cp .env.local.example .env.local
+   ```
+   Add your Finnhub API key:
+   ```
+   API_TOKEN=your_finnhub_api_key
+   ```
 
-## Learn More
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Open [http://localhost:3000](http://localhost:3000)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Built with a custom design system featuring:
+- **Typography**: Albra, Helvetica Now, and Roboto font stack
+- **Responsive Grid**: 4-column desktop layout, single-column mobile
+- **Custom Spacing**: Consistent padding and margin scales
+- **Animation System**: GSAP-powered smooth transitions
 
-## Deploy on Vercel
+## 📱 Key Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **NewsHeading** - Animated title with scroll-triggered reveals
+- **NewsList** - Responsive grid with featured article layout
+- **NewsItemCard** - Individual article cards with hover states
+- **Loading System** - Skeleton components with smooth transitions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚢 Build & Deploy
+
+```bash
+npm run build
+npm start
+```
+
+Deployed on Vercel
+
+---
+
+*Built with Next.js, TypeScript, and GSAP*
