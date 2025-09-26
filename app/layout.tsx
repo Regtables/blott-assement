@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
+import ScrollSmootherWrapper from "@/components/wrappers/ScrollSmootherWrapper";
 
 const albraFont = localFont({
   src: "../public/fonts/albra-thin.otf",

@@ -28,17 +28,17 @@ const NewsList = ({ newsData }: NewsListProps) => {
       onEnter: (elements) => {
         gsap.to(
           elements,
-          // { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.8,
-            ease: "power3.out",
+            duration: 0.5,
+            ease: "power.out",
             stagger: 0.1,
           }
         );
       },
-      start: "top bottom",
+      start: "top 85%",
+      once: true
     });
   }, []);
 

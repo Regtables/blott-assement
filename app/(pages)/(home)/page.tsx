@@ -1,26 +1,29 @@
-import { Suspense } from "react";
-
 import { getNews } from "@/app/lib/actions";
-
-import NewsList from "@/components/NewsList";
 import NewsHeading from "@/components/NewsHeading";
+import SectionSkeletonTransitionWrapper from "@/components/wrappers/SectionSkeletonTransitionWrapper";
 import NewsListSkeleton from "@/components/skeletons/NewsListSkeleton";
+import NewsList from "@/components/NewsList";
 
 export const dynamic = 'force-dynamic'
 
-async function NewsContent() {
-  const news = await getNews()
-  return <NewsList newsData={news} />
-}
-
-export default async function Home() {
+export default async function HomePage() {
+  const news = await getNews();
+  
   return (
-    <div className="home-page w-full section-padding flex flex-col lg:gap-24 gap-14">
+    <div className="px-mobile-x lg:px-desktop-x flex flex-col lg:gap-24 gap-14">
       <NewsHeading />
-
-      <Suspense fallback = {<NewsListSkeleton />}>
-        <NewsContent />
-      </Suspense>
+      
+      <SectionSkeletonTransitionWrapper 
+        ContentComponent={NewsList}
+        contentProps={{ newsData: news }}
+        SkeletonComponent={NewsListSkeleton}
+        skeletonProps={{ 
+          animationConfig: { 
+            staggerIn: 0.1, 
+            showDuration: 1.5 
+          }
+        }}
+      />
     </div>
   );
 }
