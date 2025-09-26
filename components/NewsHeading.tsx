@@ -52,7 +52,7 @@ const NewsHeading = () => {
   });
 
   return (
-    <div className="news-heading lg:text-[80px] text-[36px] leading-[40px] font-helvetica uppercase lg:leading-[80px]">
+    <div className="news-heading heading-font-size font-helvetica uppercase">
       <div className="overflow-hidden">
         <h1 className="heading-latest opacity-0">Latest News</h1>
       </div>

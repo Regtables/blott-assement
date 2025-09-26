@@ -1,22 +1,22 @@
 'use client'
 
-import { useRef, useState } from 'react';
+import { useRef, useState } from "react";
 
-type SectionSkeletonTransitionWrapperProps<TContent = any, TSkeleton = any> = {
-  ContentComponent: React.ComponentType<TContent>;
-  contentProps: TContent;
-  SkeletonComponent: React.ComponentType<TSkeleton & { onComplete?: () => void }>;
-  skeletonProps?: Omit<TSkeleton, 'onComplete'>;
+type SimpleSectionWrapperProps = {
+  ContentComponent: React.ComponentType<any>;
+  contentProps: Record<string, any>;
+  SkeletonComponent: React.ComponentType<{ onComplete?: () => void; [key: string]: any }>;
+  skeletonProps?: Record<string, any>;
   className?: string;
 };
 
-const SectionSkeletonTransitionWrapper = <TContent, TSkeleton>({ 
+const SectionSkeletonTransitionWrapper = ({ 
   ContentComponent, 
   contentProps,
   SkeletonComponent,
-  skeletonProps = {} as TSkeleton,
+  skeletonProps = {},
   className = "relative"
-}: SectionSkeletonTransitionWrapperProps<TContent, TSkeleton>) => {
+}: SimpleSectionWrapperProps) => {
   const [showContent, setShowContent] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -30,15 +30,14 @@ const SectionSkeletonTransitionWrapper = <TContent, TSkeleton>({
     <div ref={containerRef} className={className}>
       {!showContent ? (
         <SkeletonComponent 
-          {...(skeletonProps as TSkeleton)}
+          {...skeletonProps}
           onComplete={handleSkeletonComplete}
         />
       ) : (
-        // @ts-ignore
         <ContentComponent {...contentProps} />
       )}
     </div>
   );
 };
 
-export default SectionSkeletonTransitionWrapper;
+export default SectionSkeletonTransitionWrapper

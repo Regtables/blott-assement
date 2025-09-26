@@ -33,10 +33,6 @@
   --font-roboto: var(--font-roboto);
   
   /* Font sizes with line heights */
-  --font-size-80: 80px;
-  --line-height-80: 80px;
-  --font-size-40: 40px;
-  --line-height-40: 40px;
 
   /* Grid systems */
   --grid-cols-news-desktop: repeat(4, 1fr);
@@ -53,6 +49,10 @@
 
 .bg-gradient {
   background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+}
+
+.heading-font-size{
+  @apply lg:text-[80px] lg:leading-[80px] md:text-5xl md:leading-12 text-4xl leading-9;
 }
 
 .text-display-large {

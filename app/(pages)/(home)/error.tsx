@@ -9,7 +9,7 @@ export default function Error({
 }) {
   return (
     <div className="px-mobile-x lg:px-desktop-x text-center py-20">
-      <h2 className="text-[80px] font-albra">Failed to load news</h2>
+      <h2 className="heading-font-size font-albra">Failed to load news</h2>
       <p className="mb-6 font-helvetica text-2xl">Something went wrong loading the latest news.</p>
       <button
         onClick={reset}
