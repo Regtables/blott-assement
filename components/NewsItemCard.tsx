@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import ReadMoreButton from "./ReadMoreButton";
 import Link from "next/link";
+import { ImageOff } from "lucide-react";
 
 type NewsItemCardProps = PropsWithClassName<{
   newsItem: NewsItem;
@@ -35,16 +36,22 @@ const NewsItemCard = ({
       >
         <div
           className={cn("w-full h-199", isFeatured && "lg:h-[539px] h-[402px]")}
-        >
-          <figure className="relative h-full w-full">
-            <Image
-              src={newsItem.image}
-              fill
-              alt={`${newsItem.headline} featured image`}
-              objectFit="cover"
-              className="rounded-md"
-            />
-          </figure>
+        > 
+          {newsItem.image ? (
+            <figure className="relative h-full w-full">
+              <Image
+                src={newsItem.image}
+                fill
+                alt={`${newsItem.headline} featured image`}
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </figure>
+          ) : (
+            <div className="w-full h-full bg-black flex items-center justify-center">
+              <ImageOff />
+            </div>
+          )}
         </div>
 
         <div

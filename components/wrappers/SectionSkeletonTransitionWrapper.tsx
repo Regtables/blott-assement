@@ -23,7 +23,7 @@ const SectionSkeletonTransitionWrapper = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const showContent = useMemo(() => {
-    return Object.values(contentProps).length > 0
+    return Object.values(contentProps)[0].length > 0
   }, [contentProps])
 
   // useEffect(() => {
