@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import ScrollSmootherWrapper from "@/components/wrappers/ScrollSmootherWrapper";
+import Providers from "@/components/Providers";
 
 const albraFont = localFont({
   src: "../public/fonts/albra-thin.otf",
@@ -36,9 +37,9 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${albraFont.variable} ${helveticaNowFont.variable} antialiased`}
       >
-        <ScrollSmootherWrapper>
+        <Providers>
           {children}
-        </ScrollSmootherWrapper>
+        </Providers>
       </body>
     </html>
   );
