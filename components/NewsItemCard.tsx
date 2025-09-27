@@ -2,7 +2,7 @@ import { cn } from "@/app/lib/utils";
 import { NewsItem, PropsWithClassName } from "@/types";
 import Image from "next/image";
 import React from "react";
-import ReadMoreButton from "./ReadMoreButton";
+import MainButton from "./MainButton";
 import Link from "next/link";
 import { ImageOff } from "lucide-react";
 
@@ -69,7 +69,7 @@ const NewsItemCard = ({
           />
           <h3 className="lg:text-2xl leading-[130%]">{newsItem.headline}</h3>
 
-          <ReadMoreButton url={newsItem.url} headline={newsItem.headline} />
+          <MainButton url={newsItem.url} headline={newsItem.headline} />
         </div>
       </article>
     </Link>

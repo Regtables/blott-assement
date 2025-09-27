@@ -1,12 +1,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-type ReadMoreButtonProps = {
+type MainButtonProps = {
   url: string;
   headline: string;
+  text?: string
 };
 
-const ReadMoreButton = ({ url, headline }: ReadMoreButtonProps) => {
+const MainButton = ({ url, headline, text = 'Read Article' }: MainButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -34,7 +35,7 @@ const ReadMoreButton = ({ url, headline }: ReadMoreButtonProps) => {
       type="button"
     >
       <div className="relative pb-[7px] overflow-hidden">
-        <span className="relative z-10">Read Article</span>
+        <span className="relative z-10 capitalize">{text}</span>
         
         <div className={`absolute bottom-0 left-0 h-px w-full bg-white origin-right transition-transform duration-300 ease-in-out ${
           isHovered ? 'scale-x-0' : 'scale-x-100'
@@ -56,4 +57,4 @@ const ReadMoreButton = ({ url, headline }: ReadMoreButtonProps) => {
   );
 };
 
-export default ReadMoreButton;
+export default MainButton;
